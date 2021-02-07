@@ -13,12 +13,14 @@
 
 @font-face {
     font-family: 'Oswald';
+    font-display: swap; /* FOUT */
     src: url(../fonts/oswald-latin-regular.woff2) format('woff2'),
          url(../fonts/oswald-latin-regular.woff) format('woff');
 }
 
 @font-face {
     font-family: 'Philosopher';
+    font-display: block; /* FOIT */
     src: url(../fonts/philosopher-latin-regular.woff2) format('woff2'),
          url(../fonts/philosopher-latin-regular.woff) format('woff');
 }
