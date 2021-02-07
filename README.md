@@ -1,10 +1,10 @@
-# with-fonts
+# with-fonts (base)
 
 ### Case:
 *Many font files are downloaded.*
 
 - master -> origin
-- order -> fix
+- order -> fix (difference between FOIT and FOUT)
 
 [W3C](https://www.w3.org/TR/css-fonts-3/#src-desc)
 
