@@ -1,7 +1,7 @@
 /*
     @font-face {
         src: url(our-test-font.woff) format("woff"), // WOFF tried first
-             url(our-test-font.woff2) format("woff2"), // if WOFF is successful, WOFF2 is ignored
+             url(our-test-font.woff2) format("woff2"), // If WOFF is successful, WOFF2 is ignored
         }
 */
 
