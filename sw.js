@@ -1,9 +1,9 @@
-const CACHE_PREFIX = `cache`;
-const CACHE_VER = `v8`;
-const CACHE_NAME = `${CACHE_PREFIX}-${CACHE_VER}`;
+const CACHE_PREFIX = 'cache';
+const CACHE_VER = 'v8';
+const CACHE_NAME = '${CACHE_PREFIX}-${CACHE_VER}';
 
 const HTTP_STATUS_OK = 200;
-const RESPONSE_SAFE_TYPE = `basic`;
+const RESPONSE_SAFE_TYPE = 'basic';
 
 const whiteListDestinations = ['font', 'image'];
 
@@ -16,6 +16,10 @@ const static = [
     '/assets/fonts/philosopher-latin-regular.woff',
 ];
 
+const checkDestinations = destination => {
+    return !whiteListDestinations.includes(destination);
+};
+
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME).then(cache => {
@@ -24,24 +28,16 @@ self.addEventListener('install', event => {
     );
 });
 
-// Код выполнится, когда SW будет активирован.
 self.addEventListener('activate', event => {
     event.waitUntil(
-        /*
-            caches.keys() - get all caches name
-        */
         caches.keys().then(keys => {
             return Promise.all(
                 keys
                     .map(key => {
-                        // Удаляем только те кэши,
-                        // которые начинаются с нашего префикса,
-                        // но не совпадают по версии
                         if (key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME) {
                             return caches.delete(key);
                         }
 
-                        // Остальные не обрабатываем
                         return null;
                     })
                     .filter(key => key !== null)
@@ -55,18 +51,20 @@ self.addEventListener('fetch', event => {
         Only for image and font destination
         https://css-tricks.com/serviceworker-for-offline/
     */
-    if (!whiteListDestinations.includes(event.request.destination)) return;
+    if (checkDestinations(event.request.destination)) return;
 
     event.respondWith(
         caches.match(event.request).then(function (response) {
-            // Cache hit - return response
             if (response) {
                 return response;
             }
 
             return fetch(event.request).then(function (response) {
-                // Check if we received a valid response
-                if (!response || response.status !== 200 || response.type !== 'basic') {
+                if (
+                    !response ||
+                    response.status !== HTTP_STATUS_OK ||
+                    response.type !== RESPONSE_SAFE_TYPE
+                ) {
                     return response;
                 }
 
