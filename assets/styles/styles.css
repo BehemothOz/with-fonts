@@ -1,19 +1,26 @@
+/*
+    @font-face {
+        src: url(our-test-font.woff) format("woff"), // WOFF tried first
+             url(our-test-font.woff2) format("woff2"), // if WOFF is successful, WOFF2 is ignored
+        }
+*/
+
 @font-face {
     font-family: 'Roboto';
-    src: url(../fonts/roboto-latin-regular.woff) format('woff'),
-         url(../fonts/roboto-latin-regular.woff2) format('woff2');
+    src: url(../fonts/roboto-latin-regular.woff2) format('woff2'),
+         url(../fonts/roboto-latin-regular.woff) format('woff');
 }
 
 @font-face {
     font-family: 'Oswald';
-    src: url(../fonts/oswald-latin-regular.woff) format('woff'),
-         url(../fonts/oswald-latin-regular.woff2) format('woff2');
+    src: url(../fonts/oswald-latin-regular.woff2) format('woff2'),
+         url(../fonts/oswald-latin-regular.woff) format('woff');
 }
 
 @font-face {
     font-family: 'Philosopher';
-    src: url(../fonts/philosopher-latin-regular.woff) format('woff'),
-         url(../fonts/philosopher-latin-regular.woff2) format('woff2');
+    src: url(../fonts/philosopher-latin-regular.woff2) format('woff2'),
+         url(../fonts/philosopher-latin-regular.woff) format('woff');
 }
 
 h1 {
