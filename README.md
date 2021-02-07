@@ -5,6 +5,7 @@
 
 - master -> origin
 - order -> fix (difference between FOIT and FOUT)
+- sw -> (fonts and image)
 
 [W3C](https://www.w3.org/TR/css-fonts-3/#src-desc)
 
