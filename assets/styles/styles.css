@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(../fonts/roboto-latin-regular.woff) format('woff'),
+         url(../fonts/roboto-latin-regular.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url(../fonts/oswald-latin-regular.woff) format('woff'),
+         url(../fonts/oswald-latin-regular.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Philosopher';
+    src: url(../fonts/philosopher-latin-regular.woff) format('woff'),
+         url(../fonts/philosopher-latin-regular.woff2) format('woff2');
+}
+
+h1 {
+    font-family: 'Roboto';
+}
+
+h2 {
+    font-family: 'Oswald';
+}
+
+h3 {
+    font-family: 'Philosopher';
+}
